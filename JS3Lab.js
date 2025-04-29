@@ -41,8 +41,8 @@ let alphabetString = 'abcdefghijklmnopqrstuvwxyz';
  * ↓ YOUR CODE HERE ↓ */
 
 
-
-
+const newArray= [alphabetString];
+console.log(newArray);
 
 
 // Question 2: alphabetArray
@@ -60,7 +60,10 @@ let alphabetArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
  * ↓ YOUR CODE HERE ↓ */
 
 
-
+let reversedAlpha = alphabetArray.reverse();
+console.log(reversedAlpha);
+let joinedAlpha = reversedAlpha.join("");
+console.log (joinedAlpha);
 
 
 
@@ -82,7 +85,16 @@ let array1 = [1, 5, 6, 9, 10, 14];
  * 
  * ↓ YOUR CODE HERE ↓ */
 
-
+/*Step 1 */ console.log(array1);
+/*Step 2 */console.log(array1[2]);
+/*Step 3 */console.log(array1[5]);
+/*Step 4 */ 
+array1.push(16, 3);
+console.log(array1);
+/*Step 5 */ console.log(array1[2]);
+/*Step 6 */ console.log(array1[array1.length-1]); /* Yes the last element
+that was pulled out to the console.log was 3 being the new last element
+in the array */
 
 
 
@@ -103,7 +115,30 @@ Question 4: Todo List \n`);
  * ↓ YOUR CODE HERE ↓ */
 
 
+/*Step 1 */ 
+let myTodoList = [];
+console.log (myTodoList);
 
+/*Step 2 */ 
+myTodoList.push("Do Homework", "Grocery Shopping", "Clean Room");
+console.log(myTodoList);
+
+/*Step 3 */
+myTodoList.splice(1,1);
+console.log(myTodoList);
+
+/*Step 4 */
+let yourTodoList =["Volunteer at Shelter", "Paint Room"];
+console.log(yourTodoList);
+
+/*Step 5 */
+// let ourTodoList= [myTodoList + ", " + yourTodoList];
+// console.log(ourTodoList);
+
+// OR //
+
+let ourTodoList = myTodoList.concat(yourTodoList);
+console.log(ourTodoList);
 
 
 
@@ -123,6 +158,17 @@ Question 5: isEven  \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
+function isEven (x){
+       if ( x % 2 ===0){
+       return true ;
+} else {
+       return false;
+}
+}
+console.log(isEven(2));
+console.log(isEven(3));
+console.log(isEven(4));
+console.log(isEven(5));
 
 
 
@@ -153,6 +199,15 @@ Question 6: addingMachine \n`);
  * ↓ YOUR CODE HERE ↓ */
 
 
+
+function addingMachine(x) {
+let results = 0;
+for (let i=0; i < x.length ; i++){
+       results += x[i] ;
+}
+return results;
+}
+console.log(addingMachine([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]));
 
 
 
@@ -185,7 +240,28 @@ Question 7: reverse \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
+function reverse(x){
+      if (x === true || x === false){
+       return !x
+} else if ( typeof x === 'number'){
+       return Number(x.toString().split("").reverse().join(""));
+} else if ( typeof x === 'string'){
+       return (x.split("").reverse().join(""));
+} else if (typeof x === 'object'){
+       return x.map(item => {
+              if (typeof item === 'number'){
+                     return Number(item.toString().split('').reverse().join(''));
+              } else {
+                     return item.split('').reverse().join('');
+              } 
+       }).reverse();
+       
+} else {
+       return false;
+}
+}
 
+console.log(reverse(1234));
 
 
 
@@ -218,7 +294,16 @@ Question 8: removeElements \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
+function removeElements (array){
+       let i = 0;
+       while (i < array.length) {
+              array.pop(array.length-1);
+              console.log(array)
 
+       }
+}
+
+console.log(removeElements([1,2,3,4,5]));
 
 
 
@@ -245,6 +330,16 @@ Question 9: whichArrayIsLonger  \n`);
  * 
  * ↓ YOUR CODE HERE ↓ */
 
+function whichArrayIsLonger (array1, array2){
+       if (array1.length > array2.length){
+              console.log(array1);
+       } else if (array2.length > array1.length){
+              console.log(array2);
+       } else if (array1.length == array2.length){
+              return false;
+       }
+}
+console.log(whichArrayIsLonger([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]));
 
 
 
